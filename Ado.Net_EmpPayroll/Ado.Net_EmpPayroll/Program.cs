@@ -15,7 +15,8 @@ namespace EmployeePayrollSQL
             EmployeeRepo repo = new EmployeeRepo();
             try
             {
-                Console.WriteLine("Choose option or press 0 for exit\n1:Retrieve Data\n2:Add Data\n3:Update Basic_Salary\n4:Delete Data");
+                Console.WriteLine("Choose option or press 0 for exit\n1:Retrieve Data\n2:Add Data\n3:Update Basic_Salary\n4:Delete Data" +
+                                   "\n5:Retrive employee with date Range");
                 int option = Convert.ToInt32(Console.ReadLine());
                 switch (option)
                 {
@@ -31,7 +32,7 @@ namespace EmployeePayrollSQL
                             Name = "Akshata",
                             Startdate = DateTime.Now,
                             Gender = 'F',
-                            Phone = 9874562031,
+                            Phone = 9876543210,
                             Department = "TCS",
                             Address = "Mumbai",
                             Basic_Pay = 30000.00,
@@ -63,6 +64,10 @@ namespace EmployeePayrollSQL
                         repo.DeleteEmployee(model2);
                         repo.GetAllEmployees();
                         break;
+                    case 5:
+                        string query = "select * from employee_payroll where StartDate between cast ('2018-01-01' as date) and GETDATE()";
+                        repo.GetEmployeesWithDataAdapter(query);
+                        break;
                 }
                 Console.ReadLine();
             }
@@ -73,4 +78,5 @@ namespace EmployeePayrollSQL
         }
     }
 }
+
 
