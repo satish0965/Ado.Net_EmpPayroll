@@ -15,7 +15,7 @@ namespace EmployeePayrollSQL
             EmployeeRepo repo = new EmployeeRepo();
             try
             {
-                Console.WriteLine("Choose option or press 0 for exit\n1:Retrieve Data\n2:Add Data\n3:Update Basic_Salary");
+                Console.WriteLine("Choose option or press 0 for exit\n1:Retrieve Data\n2:Add Data\n3:Update Basic_Salary\n4:Delete Data");
                 int option = Convert.ToInt32(Console.ReadLine());
                 switch (option)
                 {
@@ -30,8 +30,8 @@ namespace EmployeePayrollSQL
                         {
                             Name = "Akshata",
                             Startdate = DateTime.Now,
-                            Gender = 'M',
-                            Phone = 985746210,
+                            Gender = 'F',
+                            Phone = 9874562031,
                             Department = "TCS",
                             Address = "Mumbai",
                             Basic_Pay = 30000.00,
@@ -54,6 +54,15 @@ namespace EmployeePayrollSQL
                         repo.UpdateEmployee(model1);
                         repo.GetAllEmployees();
                         break;
+                    case 4:
+                        EmployeeModel model2 = new EmployeeModel();
+                        Console.WriteLine("Enter id of employee whose data you want to delete");
+                        model2.Id = Convert.ToInt32(Console.ReadLine());
+                        Console.WriteLine("Enter name");
+                        model2.Name = Console.ReadLine();
+                        repo.DeleteEmployee(model2);
+                        repo.GetAllEmployees();
+                        break;
                 }
                 Console.ReadLine();
             }
@@ -64,3 +73,4 @@ namespace EmployeePayrollSQL
         }
     }
 }
+
