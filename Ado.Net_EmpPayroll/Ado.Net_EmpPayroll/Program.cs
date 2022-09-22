@@ -28,12 +28,12 @@ namespace EmployeePayrollSQL
                     case 2:
                         EmployeeModel model = new EmployeeModel
                         {
-                            Name = "Pant",
+                            Name = "Akshata",
                             Startdate = DateTime.Now,
                             Gender = 'M',
-                            Phone = 912423,
-                            Department = "DC",
-                            Address = "Delhi",
+                            Phone = 985746210,
+                            Department = "TCS",
+                            Address = "Mumbai",
                             Basic_Pay = 30000.00,
                             Deductions = 1000.00,
                             Taxable_Pay = 29000.00,

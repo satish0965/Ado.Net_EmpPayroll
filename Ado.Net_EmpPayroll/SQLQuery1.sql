@@ -87,3 +87,14 @@ as
 update employee_payroll1 set Basic_pay = @Basic_Pay where Id=@Id and Name= @Name;
 
 exec spUpdateEmployee 'Akshata' , 10 ,78943;
+
+
+--delete employee
+--UC_4
+create procedure spDeleteEmployee
+@Name varchar(100),
+@Id int
+as
+delete from employee_payroll1 where Id=@Id and Name = @Name;
+
+exec spDeleteEmployee 'Akshata',10 ;
