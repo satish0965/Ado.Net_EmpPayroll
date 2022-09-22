@@ -98,3 +98,25 @@ as
 delete from employee_payroll1 where Id=@Id and Name = @Name;
 
 exec spDeleteEmployee 'Akshata',10 ;
+
+--Method to add into two tables
+--UC_7
+create table Payroll_Details
+(
+SalaryId int identity(1,1) primary key,
+EmpId int FOREIGN KEY REFERENCES employee_payroll(Id),
+Salary float
+);
+
+--
+create procedure spInsertIntoTwoTables
+(
+@Name varchar(100),
+@Address varchar(100),
+@Gender char(1),
+@id int output
+)
+as 
+insert into employee_payroll1(Name, Address, Gender) values(@Name, @Address,@Gender);
+set @id = SCOPE_IDENTITY()
+return @id;

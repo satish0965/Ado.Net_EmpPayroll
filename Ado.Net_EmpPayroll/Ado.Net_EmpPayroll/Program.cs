@@ -16,7 +16,7 @@ namespace EmployeePayrollSQL
             try
             {
                 Console.WriteLine("Choose option or press 0 for exit\n1:Retrieve Data\n2:Add Data\n3:Update Basic_Salary\n4:Delete Data" +
-                    "\n5:Retrive employee with date Range\n6:Find Sum Avg Max Min Count group by gender");
+                    "\n5:Retrive employee with date Range\n6:Find Sum Avg Max Min Count group by gender\n7:Insert into two table");
                 int option = Convert.ToInt32(Console.ReadLine());
                 switch (option)
                 {
@@ -29,12 +29,12 @@ namespace EmployeePayrollSQL
                     case 2:
                         EmployeeModel model = new EmployeeModel
                         {
-                            Name = "Akshata",
+                            Name = "Pant",
                             Startdate = DateTime.Now,
-                            Gender = 'F',
-                            Phone = 9876543210,
-                            Department = "TCS",
-                            Address = "Mumbai",
+                            Gender = 'M',
+                            Phone = 912423,
+                            Department = "DC",
+                            Address = "Delhi",
                             Basic_Pay = 30000.00,
                             Deductions = 1000.00,
                             Taxable_Pay = 29000.00,
@@ -84,6 +84,11 @@ namespace EmployeePayrollSQL
                         repo.GetMinOfSalary(minquery);
                         Console.WriteLine("Count");
                         repo.GetCount(countquery);
+                        break;
+                    case 7:
+                        EmployeeModel model3 = new EmployeeModel() { Name = "AAA", Gender = 'M', Address = "Bnglr" };
+                        repo.InsertIntoTwoTables(model3);
+                        repo.GetAllEmployees();
                         break;
                 }
                 Console.ReadLine();
